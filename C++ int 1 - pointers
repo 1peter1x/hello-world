@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+void PassByValue(int);
+void PassByRef(int &);
+
+int main() {	
+  int num1, pNum;
+  int *pNum1 = &pNum;
+  num1=3;
+  *pNum1=5;
+  PassByValue(num1);
+  cout <<"in main"<<endl;
+  cout <<"num1 = " <<num1<<endl;
+  PassByRef(pNum);
+  cout <<"in main"<<endl;
+  cout <<"pNum = " <<pNum<<endl;
+  PassByValue(pNum);
+  cout <<"in main"<<endl;
+  cout <<"pNum = " <<pNum<<endl;
+  double *pDub = new double;
+  *pDub = 5.2;
+  cout <<"*pDub = " <<*pDub<<endl;
+  cout <<"pDub = " <<&pDub<<endl;
+  delete pDub;
+  cout <<"*pDub = " <<*pDub<<endl;
+  cout <<"pDub = " <<&pDub<<endl;
+	return 0;
+}
+
+void PassByValue(int num2) {
+  cout <<"Now in PassByValue."<<endl;
+  num2++;
+  cout <<"num2 = " <<num2<<endl;
+  return;
+}
+
+void PassByRef(int &pNum1) {
+  cout <<"Now in PassByRef."<<endl;
+  cout <<"pNum1 = " <<pNum1<<endl;
+  pNum1=50;
+  cout <<"pNum1 = " <<pNum1<<endl;
+  return;
+}
